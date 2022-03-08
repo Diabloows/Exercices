@@ -1,0 +1,8 @@
+#  archives ignore list
+*.env
+*node_modules
+#ignore hidden file
+.*
+ 
+# mais pas ce fichier car utile
+!.gitignore
