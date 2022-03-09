@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 mongoose
     .connect(
-        "mongodb+srv://MatthieuC:Jetesoin1@cluster0.72dav.mongodb.net/WildCode?retryWrites=true&w=majority",
+        process.env.MONGO_URI,
         {
             autoIndex: true,
         }
