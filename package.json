@@ -5,7 +5,7 @@
   "description": "petit exo express",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon --experimental-specifier-resolution=node server.js",
     "test": "echo \"Error: no test specified\" && exit1"
   },
   "author": "matt",
