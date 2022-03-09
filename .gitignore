@@ -6,3 +6,4 @@
  
 # mais pas ce fichier car utile
 !.gitignore
+!.env.schema

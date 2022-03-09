@@ -28,4 +28,8 @@ app.post(
     wilderController.create
 ); //middleWare
 
+app.use((req,res) =>{
+    res.status(404).send("Route n'existe pas");
+});
+
 app.listen(3000, () => console.log("Serveur lancé sur le port 3000"));
