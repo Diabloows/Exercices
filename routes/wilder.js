@@ -15,4 +15,8 @@ router.get("/all", wilderController.all);
 
 router.delete("/delete", wilderController.delete)
 
+router.put("/update", wilderController.update)
+
+router.get("/find/:_id", wilderController.find)
+
 export default router;

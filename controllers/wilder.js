@@ -27,7 +27,7 @@ export default {
         });
     },
     all: (req, res) => {
-        WilderModel.find({ city: "Paris" })
+        WilderModel.find()
             .then((result) => {
                 res.json({ success: true, result });
             })
@@ -53,5 +53,40 @@ export default {
             .catch((err) => {
                 res.json({ success: false, result: listErrors(err) });
             });
+    },
+
+    update: (req, res) => {
+        const {_id, name, city, skills}= req.body;
+        WilderModel.updateOne({_id},{name, city, skills} )
+        .then ((result) => {
+            console.log(result);
+            if (result.matchedCount === 0) {
+                return res.json({
+                    success: false,
+                    result: "Cet identifiant n'existe pas",
+                });
+            }
+            res.json({success: true, result});
+        })
+        .catch((err) => {
+            res.json ({success: false, result :listErrors(err) });
+        });
+    },
+
+    find: (req, res) => {
+        const {_id} = req.params;
+        WilderModel.findOne({_id})
+        .then((result) => {
+            if (!result) {
+                return res.json({
+                    success: false,
+                    result: "Cet identifiant n'existe pas",
+                });
+            }
+            res.json({ success: true, result });
+        })
+        .catch((err) => {
+            res.json({ success: false, result: listErrors(err) });
+        });
     },
 };
